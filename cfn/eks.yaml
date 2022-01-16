@@ -274,9 +274,20 @@ Resources:
     Properties:
       RepositoryName: nuxt-ambassador
   # create rds
+  
+  RDSDBSubnetGroup: 
+    Type: "AWS::RDS::DBSubnetGroup"
+    Properties: 
+      DBSubnetGroupDescription: subnet group for rds that is used for nest eks
+      SubnetIds: 
+        - !Ref PublicSubnet1
+        - !Ref PublicSubnet2
+        - !Ref PublicSubnet3
   NestRDS:
     Type: "AWS::RDS::DBInstance"
     Properties:
+      DBSubnetGroupName: !Ref RDSDBSubnetGroup
+      PubliclyAccessible: true
       DBInstanceIdentifier: !Ref RDSDBName
       DBName: !Ref RDSDBName
       DBInstanceClass: !Ref RDSDBInstanceClass
@@ -295,7 +306,7 @@ Resources:
       SecretString: '{"username":"MasterUsername","password":"secret-password"}'
       Tags:
         - Key: CHECKOUT_URL
-          Value: http://crame.link/api/checkout
+          Value: http://crame.link/checkout
         - Key: STRIPE_KEY
           Value: sk_test_51K6qJkFwSE9OqyMq1jMKaH4NDTIWWPaacYRI26tDLuF0GKcDMNPtTYwrOl0mXQpMWMURIVymg041odWK79UxozoT00ztJ6cTgx
         - Key: MYSQL_HOST
