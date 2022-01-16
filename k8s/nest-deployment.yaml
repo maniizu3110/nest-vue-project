@@ -1,0 +1,23 @@
+nestVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nest-deployment
+  labels:
+    app: nest-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nest-pod
+  template:
+    metadata:
+      labels:
+        app: nest-pod
+    spec:
+      containers:
+        - name: crame-nest
+        #TODO:指定
+          #image: 800317362310.dkr.ecr.ap-northeast-1.amazonaws.com/crame-nest:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080

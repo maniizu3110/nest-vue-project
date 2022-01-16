@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: vue-admin-deployment
+  labels:
+    app: vue-admin-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: vue-admin-pod
+  template:
+    metadata:
+      labels:
+        app: vue-admin-pod
+    spec:
+      containers:
+        - name: crame-vue-admin
+          #image: TODO:指定
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

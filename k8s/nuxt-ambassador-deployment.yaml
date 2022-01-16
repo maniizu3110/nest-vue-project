@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nuxt-checkout-deployment
+  labels:
+    app: nuxt-checkout-pod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nuxt-checkout-pod
+  template:
+    metadata:
+      labels:
+        app: nuxt-checkout-pod
+    spec:
+      containers:
+        - name: crame-nuxt-checkout
+          #image: TODO:指定
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 80

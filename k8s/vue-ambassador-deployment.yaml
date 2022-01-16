@@ -1,22 +1,22 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api-deployment
+  name: vue-ambassador-deployment
   labels:
-    app: api-pod
+    app: vue-ambassador-pod
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api-pod
+      app: vue-ambassador-pod
   template:
     metadata:
       labels:
-        app: api-pod
+        app: vue-ambassador-pod
     spec:
       containers:
-        - name: crame-api
-          image: 800317362310.dkr.ecr.ap-northeast-1.amazonaws.com/crame-api:latest
+        - name: crame-vue-ambassador
+          #image: TODO:指定
           imagePullPolicy: Always
           ports:
-            - containerPort: 8080
+            - containerPort: 80
