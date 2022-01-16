@@ -11,7 +11,7 @@ import {RedisService} from "./redis.service";
         }),
         CacheModule.register({
             store: redisStore,
-            host: 'redis',
+            host: 'redis-service',
             port: 6379,
         })
     ],
