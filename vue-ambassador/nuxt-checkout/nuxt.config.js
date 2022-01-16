@@ -56,7 +56,7 @@ export default {
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     baseURL:
-      process.env.NODE_ENV === prod
+      process.env.NODE_ENV === 'prod'
         ? "https://crame.link/api/checkout"
         : "http://localhost:8000/api/checkout/"
   },

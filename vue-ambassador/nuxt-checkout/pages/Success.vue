@@ -17,7 +17,6 @@ export default {
       source: this.$route.query.source
     });
 
-    console.log(data);
   }
 }
 </script>
