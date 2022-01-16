@@ -1,18 +1,21 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
-import vuetify from './plugins/vuetify';
+import Vue from "vue";
+import App from "./App.vue";
+import router from "./router";
+import store from "./store";
+import vuetify from "./plugins/vuetify";
 import axios from "axios";
 
-axios.defaults.baseURL = process.env.NODE_ENV === "prod" ?'http://localhost:8000/api/admin/': "heyheyhey";
+axios.defaults.baseURL =
+  process.env.NODE_ENV === "prod"
+    ? "https://crame.link/api/admin"
+    : "http://localhost:8000/api/admin/";
 axios.defaults.withCredentials = true;
 
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 new Vue({
-    router,
-    store,
-    vuetify,
-    render: h => h(App)
-}).$mount('#app')
+  router,
+  store,
+  vuetify,
+  render: (h) => h(App),
+}).$mount("#app");
